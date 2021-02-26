@@ -1,22 +1,23 @@
-import React,{useState} from 'react'
-import {Flex,Box,Spacer,Button,Heading,HStack,Input,InputGroup,InputLeftElement} from '@chakra-ui/react'
+import React from 'react'
+import {Flex,Box,Spacer,Heading,HStack,Input,InputGroup,InputLeftElement} from '@chakra-ui/react'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {BsBellFill} from 'react-icons/bs'
 import {BiSearchAlt} from 'react-icons/bi'
 import {MenuOption} from './Menu'
-import {properties} from './Data'
 import {FaUserCircle} from 'react-icons/fa'
 
 
-export const  Navbar = () => {
+
+
+export const  Navbar = (props) => {
+  
     return (
         <Flex p={3} backgroundColor="#1971ff" fontFamily="PT sans" color="white">
-
-        <Box mt={3} pl= {3} fontSize={["15px","30px"]}  cursor="pointer">
-            <GiHamburgerMenu />
+        <Box mt={3} pl= {3} fontSize={["15px","30px"]}  cursor="pointer" onClick={props.toogle} >
+            <GiHamburgerMenu  />
         </Box>
         <Box p="2" color="white">
-          <Heading size="lg">GlobalTV</Heading>
+          <Heading size="lg" ml={3}>GlobalTV</Heading>
         </Box>
         <Spacer />
         <Box>
