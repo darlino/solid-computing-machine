@@ -1,5 +1,6 @@
 import React from 'react'
 import {Menu,MenuButton,MenuList,MenuItem,IconButton} from '@chakra-ui/react'
+import {Link} from 'react-router-dom'
 import {properties} from './Data'
 export const MenuOption = (props) => {
     return (
@@ -17,22 +18,22 @@ export const MenuOption = (props) => {
                     fontSize="25px"   
                 />
                 <MenuList 
-                background="#1971ff" 
+                background="#0A6ABF" 
                 border="none" 
                 fontSize="18px" 
                 textAlign="center"
                 fontWeightt="none" 
-                _active = {{ background: "#2865c7",color:"white"}}
+                _active = {{ background: "#0A6ABF",color:"white"}}
                     >
                     {
                         properties.map(element =>{
                             return(
-                                <a href={element.path}>
-                                <MenuItem _hover={{ background: "#2865c7"}} icon={element.elements_icons}>
+                                <Link to={element.path}>
+                                <MenuItem _hover={{ background: "#5e9cff"}} icon={element.elements_icons} fontFamily="sans-serif">
                                     {element.text}
                                 </MenuItem>
                             
-                                </a>
+                                </Link>
                             )
                         })
                     }
