@@ -9,7 +9,7 @@ export const Channels = () => {
 
     let COMPONENT_TO_RENDER;
     const [isOpen, setIsOpen] = useState(false)
-    let MARGIN_LEFT
+    let MARGIN_LEFT;
     let WIDTH,HEIGHT
 
     const toogler = () =>{
