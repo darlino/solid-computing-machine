@@ -3,7 +3,7 @@ import {Carrousel} from '../Elements/Carrousel/Index'
 import {Videos} from '../Elements/Videos/Index'
 import {Box} from '@chakra-ui/react'
 import {Sidebar,MinimalSideBar,MainSideBar} from '../UI/Sidebar/Index'
-import './style.css'
+
 
 
 

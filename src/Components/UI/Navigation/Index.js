@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
-import {Flex,Box,Spacer,HStack,Input,InputGroup,InputLeftElement} from '@chakra-ui/react'
+import {Flex,Box,Spacer,Text,Input,InputGroup,InputLeftElement} from '@chakra-ui/react'
 import {Link} from 'react-router-dom'
-import { Button, UncontrolledPopover, PopoverBody ,ListGroupItem, ListGroup } from 'reactstrap';
+import {Button} from '../Button/Button'
 import {BsBellFill} from 'react-icons/bs'
 import {BiSearchAlt} from 'react-icons/bi'
 import {properties} from './Data'
@@ -31,30 +31,11 @@ export const  Navbar = (props) => {
             </InputGroup>
         </Box>
         <Spacer/>
-        <HStack fontSize="30px" mt={2} spacing={10} mr={7}>
-            <Box position="absolute" top="24px">
-                <Box w="20px" h="20px" color="white"  borderRadius="50%" backgroundColor="red" ml={4} mb={1} position ="absolute" bottom="13px" fontSize="11px" textAlign="center" pt={0.5}>
-                    <p paddingTop="3px">10</p>
-                </Box>
-                <BsBellFill color="#247CC8"/>
-            </Box>
-            <Box >
-                <Button id="PopoverFocus" type="button" color="none" outline="none" border="none" >
-                    <FaUserCircle fontSize="30px" color="#247CC8"/>
-                </Button>
-            </Box>
-            <UncontrolledPopover trigger="focus" placement="bottom" target="PopoverFocus">
-            <ListGroup type="unstyled" display="flex">
-            {
-                properties.map(e =>{
-                    return(
-                        <Link to={e.path}> <ListGroupItem className="justify-content-between list-group-item-action p-2 " color="#247CC8" ><PopoverBody>{e.text}</PopoverBody></ListGroupItem></Link>
-                    )
-                })
-            }
-            </ListGroup>
-            </UncontrolledPopover>
-        </HStack>
+        
+            <Button to="login" bg="rgba(5,61,126,1)" border="#0448b5" color = "white" bghover="#0448b5" > <Text marginTop="7px" > Login </Text> </Button>
+            <Button to ="register" bg="none" border="rgba(5,61,126,1)" color = "rgba(5,61,126,1)" > <Text marginTop="7px" > Register </Text></Button>
+        
+        
       </Flex>
     )
 }

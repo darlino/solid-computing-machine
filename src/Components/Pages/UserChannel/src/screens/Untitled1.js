@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
-import {Box} from '@chakra-ui/react'
+import {Box,Wrap,WrapItem} from '@chakra-ui/react'
 import logo from "../assets/images/59-595914_facebook-cover-photos-retro.jpg"
 import luffy from "../assets/images/luffy-lavez-vous-les-mains.jpg"
 import thumb from "../assets/images/nba-live-mobile-17651-2.jpg"
+import todo from "../assets/images/todo.jpg"
 function Profile(props) {
   return (
     <Box w="100vh" p={20} mt={4}>
@@ -26,18 +27,47 @@ function Profile(props) {
       </RectStackStack>
       <Rect3>
         <Videos>Videos</Videos>
+
+
+        {
+        }
+        <Wrap>
         <Rect4Stack>
           <Rect4>
             <LoremIpsum3>NBA Live will come out soon</LoremIpsum3>
             <LoremIpsum4>8k views</LoremIpsum4>
           </Rect4>
-          <Image3>
+          
+          <WrapItem>
+          <Image3 img={thumb}>
             <Rect5Stack>
               <Rect5></Rect5>
               <LoremIpsum2>5 : 30</LoremIpsum2>
             </Rect5Stack>
           </Image3>
+          </WrapItem>
+          
         </Rect4Stack>
+
+        <Rect4Stack>
+          <Rect4>
+            <LoremIpsum3>NBA Live will come out soon</LoremIpsum3>
+            <LoremIpsum4>8k views</LoremIpsum4>
+          </Rect4>
+          
+          <WrapItem>
+          <Image3 img={todo}>
+            <Rect5Stack>
+              <Rect5></Rect5>
+              <LoremIpsum2>5 : 30</LoremIpsum2>
+            </Rect5Stack>
+          </Image3>
+          </WrapItem>
+          
+        </Rect4Stack>
+        
+        </Wrap>
+          
       </Rect3>
     </Box>
   );
@@ -55,9 +85,11 @@ const Rect = styled.div`
 `;
 
 const Image = styled.img`
-  width: 1478px;
+  width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: center;
+
+  
 `;
 
 const Image2 = styled.img`
@@ -198,8 +230,12 @@ const Image3 = styled.div`
   position: absolute;
   flex-direction: column;
   display: flex;
-  background-image: url(${thumb});
+  background-image: url(${props => props.img});
   background-size: cover;
+  transition:transform .2s;
+  &:hover{
+    transform: scale(1.05)
+  }
 `;
 
 const Rect5 = styled.div`
@@ -214,7 +250,7 @@ const Rect5 = styled.div`
 
 const LoremIpsum2 = styled.span`
   font-family: Alata;
-  top: 6px;
+  top: 2px;
   left: 19px;
   position: absolute;
   font-style: normal;

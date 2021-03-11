@@ -9,7 +9,6 @@ import {
     Switch,
     Route
 } from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import {VideoPlayer} from '../Components/Pages/VideoPlayer/VideoPlayer'
 import {ProfilePage} from '../Components/Pages/UserChannel/Index'
 
