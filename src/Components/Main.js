@@ -9,11 +9,14 @@ import {
     Switch,
     Route
 } from 'react-router-dom'
-import {VideoPlayer} from '../Components/Pages/VideoPlayer/VideoPlayer'
+import {Player} from '../Components/Pages/VideoPlayer/Player'
 import {ProfilePage} from '../Components/Pages/UserChannel/Index'
+import { Login } from './Elements/Auth/Login'
+import { Register } from './Elements/Auth/Register'
 
 
 function Main () {
+   
     
     return (
         <Router>
@@ -21,7 +24,7 @@ function Main () {
             <Home/>
                 <Switch>
                     <Route exact path="/">
-                        <DefaultPage/>
+                        <DefaultPage />
                     </Route>
                 </Switch>
                 <Switch>
@@ -31,7 +34,7 @@ function Main () {
                 </Switch>
                 <Switch>
                     <Route path="/player">
-                        <VideoPlayer/>
+                        <Player />
                     </Route>
                 </Switch>
                 <Switch>
@@ -39,6 +42,17 @@ function Main () {
                         <ProfilePage/>
                     </Route>
                 </Switch>
+                <Switch>
+                    <Route path="/login">
+                        <Login/>
+                    </Route>
+                </Switch>
+                <Switch>
+                    <Route path="/register">
+                        <Register/>
+                    </Route>
+                </Switch>
+               
             </ChakraProvider>
         </Router>
         

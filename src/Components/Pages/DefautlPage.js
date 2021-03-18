@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import {Carrousel} from '../Elements/Carrousel/Index'
-import {Videos} from '../Elements/Videos/Index'
+import {Videos} from '../Elements/Thumbnail/Index'
 import {Box} from '@chakra-ui/react'
 import {Sidebar,MinimalSideBar,MainSideBar} from '../UI/Sidebar/Index'
 
@@ -44,7 +44,7 @@ export const DefaultPage = (props) => {
     const HOME = (
         <>
             <Carrousel />
-            <Videos w={WIDTH} h={HEIGHT}/>
+            <Videos />
         </>
     )
 

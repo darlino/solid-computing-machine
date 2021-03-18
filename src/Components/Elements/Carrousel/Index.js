@@ -38,7 +38,7 @@ export const Carrousel = () => {
                         </>
                         )
                     }}>
-            <ImgMediCard name={"darlino"} subs_num={"4"} img={yt} zIndex="10"/>
+            <ImgMediCard name={"darlino"} subs_num={"4"} img={yt} zIndex="10" style={{marginTop:"30px"}}/>
 
         </Carousel>
           

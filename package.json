@@ -26,8 +26,11 @@
     "react-responsive-carousel": "^3.2.12",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-video-js-player": "^1.1.1",
     "reactstrap": "^8.9.0",
+    "redux": "^4.0.5",
     "styled-components": "^5.2.1",
+    "video.js": "^7.11.4",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

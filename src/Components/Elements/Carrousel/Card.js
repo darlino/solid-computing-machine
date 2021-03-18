@@ -20,6 +20,7 @@ const Rect = styled.div`
   background-color: rgba(0,95,206,0.27);
   flex-direction: column;
   display: flex;
+  margin-top:40px
 `;
 
 const Image2 = styled.img`

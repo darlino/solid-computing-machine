@@ -10,6 +10,7 @@ export const Button  = styled(Link)`
     margin-top:10px;
     text-align: center;
     border-radius:5px;
+    margin-top:3px;
     margin-left:50px;
     border: 1px solid ${props => props.border};
     color: ${props => props.color};

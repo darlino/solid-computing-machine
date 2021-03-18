@@ -12,7 +12,7 @@ import logo from '../../assets/logo.png'
 export const  Navbar = (props) => {
   
     return (
-        <Flex p={3} backgroundColor="#fff" fontFamily="PT sans" color="black" position="fixed" w="100%" maxHeight="9vh" pb="30px" top = "0" overflow="hidden" zIndex={1} textDecoration="none" borderBottom=".2px solid #747678">
+        <Flex p={3} backgroundColor="#fff" fontFamily="PT sans" position="fixed" w="100%" maxHeight="9vh" top = "0" pb={5} overflow="hidden" zIndex={1} textDecoration="none" borderBottom=".2px solid #747678">
         <Box >
             <Link to="/">
                 <Box w="180px" h="80px" position="absolute" top="3px">
@@ -21,21 +21,18 @@ export const  Navbar = (props) => {
             </Link>
         </Box>
         <Spacer />
-        <Box>
-            <InputGroup mt="2">
+        <Box mb={3}>
+            <InputGroup mt={1} ml={13}>
                 <InputLeftElement
                 pointerEvents="none"
                 children={<BiSearchAlt color="black" />}
                  />
-                <Input type="text" variant="filled" placeholder="Search for a video" w={["100px","500px"]}/>
+                <Input type="text" variant="filled" placeholder="Search for a video" w={["100px","500px"]} />
             </InputGroup>
         </Box>
         <Spacer/>
-        
             <Button to="login" bg="rgba(5,61,126,1)" border="#0448b5" color = "white" bghover="#0448b5" > <Text marginTop="7px" > Login </Text> </Button>
             <Button to ="register" bg="none" border="rgba(5,61,126,1)" color = "rgba(5,61,126,1)" > <Text marginTop="7px" > Register </Text></Button>
-        
-        
       </Flex>
     )
 }

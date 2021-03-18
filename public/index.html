@@ -39,5 +39,29 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script src="index.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyBiVLdIVfInGyEZwfGLPQfxBj6I8-6fiYI",
+    authDomain: "global-tv-676ff.firebaseapp.com",
+    projectId: "global-tv-676ff",
+    storageBucket: "global-tv-676ff.appspot.com",
+    messagingSenderId: "92222915229",
+    appId: "1:92222915229:web:52ae443e90cb543ff20a74",
+    measurementId: "G-MZWJ1EBHFZ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
   </body>
 </html>
