@@ -3,13 +3,14 @@ import React,{useState} from 'react'
 import {Center,Heading} from '@chakra-ui/react'
 import {Box} from '@chakra-ui/react'
 import {Sidebar,MinimalSideBar,MainSideBar} from '../../UI/Sidebar/Index'
-import Profile from './src/screens/Untitled1'
+import Profile from './src/screens/UserProfileElements'
 
 export const ProfilePage = () => {
 
     let COMPONENT_TO_RENDER;
     const [isOpen, setIsOpen] = useState(false)
-    let MARGIN_LEFT
+    
+    let MARGIN_LEFT 
     let WIDTH,HEIGHT
 
     const toogler = () =>{

@@ -1,11 +1,18 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
-import {Box,Wrap,WrapItem} from '@chakra-ui/react'
+import {Box,HStack,Wrap,WrapItem,Text} from '@chakra-ui/react'
 import logo from "../assets/images/59-595914_facebook-cover-photos-retro.jpg"
 import luffy from "../assets/images/luffy-lavez-vous-les-mains.jpg"
 import thumb from "../assets/images/nba-live-mobile-17651-2.jpg"
 import todo from "../assets/images/todo.jpg"
+import {Link} from "react-router-dom"
+import { BsPencil } from 'react-icons/bs'
 function Profile(props) {
+
+  const [haveSubscribe,setHaveSubscribe] = useState(false)
+  const [subscribers,setSubccribers] = useState(0)
+
+
   return (
     <Box w="100vh" p={20} mt={4}>
       <RectStackStack>
@@ -19,18 +26,21 @@ function Profile(props) {
             src={luffy}
           ></Image2>
         </RectStack>
-        <Rect2>
-          <Subscribe>Subscribe</Subscribe>
+        <HStack spacing="40px" width="500px" ml="800px">
+        <Rect2 onClick={ () => setHaveSubscribe(!haveSubscribe)}>
+          <Subscribe>{haveSubscribe ? "Unsubscribe" : "Subscribe"}</Subscribe>
         </Rect2>
+        <Edit to="/edit-profile">
+          <Subscribe> <Text> Edit Profile</Text> </Subscribe>
+        </Edit>
+        </HStack>
+        
         <LuffyDeWano>Luffy De Wano</LuffyDeWano>
-        <LoremIpsum>2k Subcribers</LoremIpsum>
+        
+        <LoremIpsum>{`${subscribers} Subcribers`}</LoremIpsum>
       </RectStackStack>
       <Rect3>
         <Videos>Videos</Videos>
-
-
-        {
-        }
         <Wrap>
         <Rect4Stack>
           <Rect4>
@@ -72,7 +82,20 @@ function Profile(props) {
     </Box>
   );
 }
-
+const Edit = styled(Link)`
+  top: 355px;
+  left: 950px;
+  width: 177px;
+  height: 42px;
+  position: absolute;
+  background-color: rgba(5,61,126,1);
+  border-radius: 1px;
+  flex-direction: column;
+  border-radius:2px;
+  display: flex;
+  display:flex;
+  justify-content: space-between;
+`
 const Rect = styled.div`
   top: 0px;
   left: 0px;
@@ -109,7 +132,7 @@ const RectStack = styled.div`
   position: absolute;
 `;
 
-const Rect2 = styled.div`
+const Rect2 = styled.button`
   top: 355px;
   left: 1201px;
   width: 177px;
@@ -118,6 +141,7 @@ const Rect2 = styled.div`
   background-color: rgba(5,61,126,1);
   border-radius: 1px;
   flex-direction: column;
+  border-radius:2px;
   display: flex;
 `;
 

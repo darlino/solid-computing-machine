@@ -44,7 +44,9 @@ export const Player = (props) => {
                         <ProfileImg src={deku}/>
                     </ProfileImgWrapper>
                     <VStack m={5} spacing={2}>
-                        <Heading fontSize="20px" color="#fff"> Darlino </Heading>
+                        <Link to="/profile">
+                            <Heading fontSize="20px" color="#fff"> Darlino </Heading>
+                        </Link>
                         <Text color="#c3c5c7"> { `45k subscribers`} </Text>
                     </VStack>
                     <ProfileBtn float="right">Subscribe</ProfileBtn>
