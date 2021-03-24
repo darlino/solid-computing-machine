@@ -1,155 +1,157 @@
-import React,{useState,useEffect} from 'react'
-import coolImg from './into.svg'
-import wave from './wave.svg'
-import brock from './lalou.svg'
-import { BsFillEyeFill } from 'react-icons/bs'
-import { BsFillEyeSlashFill } from 'react-icons/bs'
-import {
-    FormControl,
-    FormLabel,
-    FormErrorMessage,
-    FormHelperText,
-    Input,
-    Center,
-    Text,Heading,Box,InputGroup,Button,InputRightElement, background, HStack,Divider
-  } from "@chakra-ui/react"
-import { BiRightArrow } from 'react-icons/bi'
-import './style.css'
+import './formik-demo.css';
+import React from 'react';
+import { render } from 'react-dom';
+import { withFormik } from 'formik';
+import * as Yup from 'yup';
+import logo from '../../assets/logo.png'
+import classnames from 'classnames';
+import {Redirect} from 'react-router-dom'
 
 
-const dummyUser = [
-
+const dummyData = [
     {
-        email:"darnoul20@gmail.com",
-        username:"darlino",
-        password:"tokyodrift"
+        email : "darnoul20@gmail.com",
+        password : "qwerty12345"
     },
     {
-        email:"sebastian@gmail.com",
-        username:"sebastian",
-        password:"yoomeloop"
-    },
-    {
-        email:"eren20@gmail.com",
-        username:"eren",
-        password:"titan"
-    },
+        email : "seigneur@darlino.com",
+        password: "supalonely12345"
+    }
 ]
-export const Login = () => {
-    const [email,setEmail] = useState(null)
-    const [password,setPassword] = useState(null)
-    const [username, setUsername] = useState(null)
-    const [show, setShow] = useState(false)
-    const handleClick = () => setShow(!show)
+const formikEnhancer = withFormik({
+  validationSchema: Yup.object().shape({
+    email: Yup.string()
+      .email('Invalid email address')
+      .required('Email is required!'),
+    password : Yup.string()
+      .required("the password is required")
+  }),
 
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value)
-    }
-
-    const handleUsernameChange = (e) =>{
-        setUsername(e.target.value)
-    }
-
-    useEffect(() => {
-        return () => {
-            handlePasswordChange()
-        }
-    }, [])
-
-    
-    const handleSubmit = (e) =>{
-        const user = {
-            email : email,
-            username : username,
-            password : password
-        }
-
-        for (let index = 0; index < dummyUser.length; index++) {
-            if(JSON.stringify(dummyUser[index]) === JSON.stringify(user)){
-                alert("yo")
-            }
+  mapPropsToValues: ({ user }) => ({
+    ...user,
+  }),
+  handleSubmit: (payload, { setSubmitting }) => {
+    dummyData.map(e =>{
+        if(JSON.stringify(e) === JSON.stringify(payload) ){
+            return (
+                <Redirect to='/'></Redirect>
+            )
+            
+        }else{
             
         }
-          
-      }
-    const handlePasswordChange = (e) =>{
-        let str = e.target.value
-        let pass = str
+    })
+    setSubmitting(false);
+  },
+  displayName: 'MyForm',
+});
 
-        if(str.length < 8){
-            console.log("your pass word must be at least 8 characters")
-        }
-        setPassword(str)
-        
-     
-    }
-    console.log(email);
+const InputFeedback = ({ error }) =>
+  error ? <div className="input-feedback">{error}</div> : null;
 
-    const PasswordInput = (
-          <InputGroup size="md">
-            <Input
-              pr="4.5rem"
-              type={show ? "text" : "password"}
-              placeholder="Enter password"
-              value = {password}
-              onChange={handlePasswordChange}
-            />
-            <InputRightElement width="4.5rem">
-              <Button h="1.75rem" size="sm" bgColor="#0448B5" color="white" onClick={handleClick} _hover= {{
-                                bgColor:"#012966",
-                                color:"white"
-                            }} >
-                {show ? <BsFillEyeFill/> : <BsFillEyeSlashFill/>}
-              </Button>
-            </InputRightElement>
-          </InputGroup>
-        )
-      
-    return (
-        <HStack spacing={1} overflow="hidden">
-        <Box w="600px" h="auto" shadow="dark-lg" style={{ margin : "250px"}} >
-                <Box w="90%" style={{ margin : "20px auto" ,background:{wave}}} pb = {6}>
-                    <form onSubmit={handleSubmit}>
-                        <FormControl id="email" isRequired mt={10}>
-                            <FormLabel>Email address</FormLabel>
-                            <Input type="email" value={email} onChange={handleEmailChange} placeholder = "Enter your email"/>
-                        </FormControl>
-                        <FormControl id="username" isRequired mt={10}>
-                            <FormLabel>Username</FormLabel>
-                            <Input type="text" value={username} onChange={handleUsernameChange} placeholder = "Enter your username"/>
-                        </FormControl>
-                        
-                        <FormControl id="password" isRequired mt={10} >
-                            <FormLabel>Password</FormLabel>
-                            {PasswordInput}
-                        </FormControl>
-                        <Button  variant="outline" type="submit" w="100%" bgColor="#0448B5" color="white" mt={10} 
-                            _hover= {{
-                                bgColor:"#012966",
-                                color:"white"
-                            }}
-                        >Login</Button>
-                    </form>
-                </Box>  
-        </Box>
-        <Box height="100vh" width="50%" bgColor="#012966">
-                <img src={coolImg} style={{
-                    position:"absolute",
-                    width:"40%",
-                    height:"40%",
-                    left:"45%",
-                    top:"40%"
-                }}/>
-                <Box width="400px" height="150px" marginTop="260px" ml="450px" mr="10px" position = "relative" right="60px" bgColor="white" textAlign="center" padding="30px" borderRadius="200px 200px 200px 0px">
-                <Heading color="blackAlpha.900">
-                    Login to watch amazing videos
-                </Heading>
-                </Box>
-        </Box>
+const Label = ({ error, className, children, ...props }) => {
+  return (
+    <label className="label" {...props}>
+      {children}
+    </label>
+  );
+};
 
-      
+const TextInput = ({ type, id, label, error, value, onChange, className, ...props }) => {
+  const classes = classnames(
+    'input-group',
+    {
+      'animated shake error': !!error,
+    },
+    className
+  );
+  return (
+    <div className={classes}>
+      <Label htmlFor={id} error={error}>
+        {label}
+      </Label>
+      <input
+        id={id}
+        className="text-input"
+        type={type}
+        value={value}
+        onChange={onChange}
+        {...props}
+      />
+      <InputFeedback error={error} />
+    </div>
+  );
+};
+const MyForm = props => {
+  const {
+    values,
+    touched,
+    errors,
+    dirty,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    handleReset,
+    isSubmitting,
+  } = props;
+  return (
+    <form onSubmit={handleSubmit}>
+      <TextInput
+        id="email"
+        type="email"
+        label="Email"
+        placeholder="Enter your email"
+        error={touched.email && errors.email}
+        value={values.email}
+        onChange={handleChange}
+        onBlur={handleBlur}
+      />
+        <TextInput
+        id="password"
+        type="password"
+        label="Password"
+        placeholder="Enter your password"
+        error={touched.password && errors.password}
+        value={values.password}
+        onChange={handleChange}
+        onBlur={handleBlur}
+      />
+      <div classnames="d-grid col-6 mx-auto">
+        <button type="submit" disabled={isSubmitting} className="btn w-500" style={{
+            width:"100%",
+            background : "#063E7E",
+            color:"#fff"
+
+        }}>
+            Submit
+        </button>
+      </div>
+    </form>
+  );
+};
+
+const MyEnhancedForm = formikEnhancer(MyForm);
+
+
+
+export const Login = () => (
+  <div className="app">
+   <div className="container">
        
-        </HStack>
-        
-    )
-}
+       <div className="logo-container">
+            <img src={logo} style = {{
+                width:"600px",
+                height:"170px",
+                background:"cover",
+                marginLeft:"30px"
+            }}/>
+            
+       </div>
+       <MyEnhancedForm user={{ email: '',password: '' }} />
+   </div>
+
+    
+   
+  </div>
+);
+

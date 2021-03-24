@@ -15,6 +15,10 @@ export const VideoThumbImg = styled.img`
     height:100%;
     object-fit:stretch;
     background:stretch,
+
+    &:hover{
+        transform: translateX(50px,-50px)
+    }
 `
 
 export const MainVideoThumb = styled.div`
@@ -63,8 +67,8 @@ export const SideInfo = styled.div`
 
 
 export const VideoThumb = styled.div`
-    width:30%;
-    height:300px;
+    width:296px;
+    height:200px;
     margin-top:120px;
     margin-left:20px;
     background-image:url(${props => props.background})
@@ -80,13 +84,24 @@ export const ProfileBlock = styled.div`
     
 
 `
+export const LinkToUser = styled.button`
+    width:200px;
+    height:35px;
+    background-color: #020761;
+    color:white;
+    border-radius:3px;
+    text-align:center;
+    padding-top: 5px;
 
+`
 export const ProfileImage = styled.div`
     width:60px;
     height:60px;
     border-radius:50%;
     background:red;
     margin-left:5px;
+    position: relative;
+    bottom:40px
     
 `
 
@@ -103,12 +118,14 @@ export const VideoTitle = styled.h3`
     color:black
 `
 export const ViewerCount = styled.div`
-    width:120px;
-    height: 30px;
+    width:auto;
+    height: auto;
     background:black;
+    font-family:"consolas",sans-serif;
+    font-size:12px;
     opacity:0.7;
     position:relative;
-    padding-top:2px;
+    padding:3px;
     letter-spacing:1px;
     bottom:40px;
     float:right;

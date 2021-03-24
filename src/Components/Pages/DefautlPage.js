@@ -35,7 +35,7 @@ export const DefaultPage = (props) => {
     }
     else{
         COMPONENT_TO_RENDER = <MinimalSideBar toggle={toogler}/>
-        MARGIN_LEFT = "200px"
+        MARGIN_LEFT = "60px"
         WIDTH = "300px"
         HEIGHT = "350px"
 
@@ -43,7 +43,6 @@ export const DefaultPage = (props) => {
 
     const HOME = (
         <>
-            <Carrousel />
             <Videos />
         </>
     )

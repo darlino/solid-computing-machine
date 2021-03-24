@@ -84,7 +84,7 @@ export const VideoPlayer = (props) => {
             
 
                 <video controls className="video" id="video" preload="metadata" poster={props.poster} width="100%">
-                    <source src={props.src} type="video/mp4"></source>
+                    <source src="http://164.90.141.179:8080/hls/test.m3u8" type="video/mp4"></source>
                 </video>
 
             

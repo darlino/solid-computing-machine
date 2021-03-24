@@ -12,7 +12,7 @@ import logo from '../../assets/logo.png'
 export const  Navbar = (props) => {
   
     return (
-        <Flex p={3} backgroundColor="#fff" fontFamily="PT sans" position="fixed" w="100%" maxHeight="9vh" top = "0" pb={5} overflow="hidden" zIndex={1} textDecoration="none" borderBottom=".2px solid #747678">
+        <Flex p={3} backgroundColor="#fff" fontFamily="PT sans" position="fixed" w="100%" maxHeight="8vh" top = "0" pb={1} overflow="hidden" zIndex={1} textDecoration="none" borderBottom=".2px solid #747678">
         <Box >
             <Link to="/">
                 <Box w="180px" h="80px" position="absolute" top="3px">
@@ -21,7 +21,7 @@ export const  Navbar = (props) => {
             </Link>
         </Box>
         <Spacer />
-        <Box mb={3}>
+        <Box mb={3} ml="300px" mb={3}>
             <InputGroup mt={1} ml={13}>
                 <InputLeftElement
                 pointerEvents="none"

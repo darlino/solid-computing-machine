@@ -42,7 +42,7 @@ const DATA_TO_RENDER = [
 
 export const MinimalSideBar = (props) => {
     return(
-        <Box bg="#0B6BBF" w = "70px" color = "white" h = "100vh" position="fixed"  fontSize="25px" mt="9vh">
+        <Box bg="#0B6BBF" w = "70px" color = "white" h = "100vh" position="fixed"  fontSize="25px" mt="13.5vh">
             <List spacing={3} >
             <Box w = "70px"
                 d = "flex"
@@ -87,7 +87,7 @@ export const MinimalSideBar = (props) => {
 }
 export const Sidebar = (props) => {
     return (
-        <Box bgGradient="linear(to-b, #2A80CB, #81B7E6)" w = "230px" color = "white" h = "100vh" position="fixed"  fontSize="20px"  mt="9vh">
+        <Box bgGradient="linear(to-b, #2A80CB, #81B7E6)" w = "230px" color = "white" h = "100vh" position="fixed"  fontSize="20px"  mt="13.5vh">
             <List spacing={3}>
 
             <Box w = "230px"

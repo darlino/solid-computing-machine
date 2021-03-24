@@ -13,7 +13,8 @@ import {Player} from '../Components/Pages/VideoPlayer/Player'
 import {ProfilePage} from '../Components/Pages/UserChannel/Index'
 import { Login } from './Elements/Auth/Login'
 import { Register } from './Elements/Auth/Register'
-
+import 'bootstrap/dist/css/bootstrap.css';
+import './style.css'
 
 function Main () {
    
