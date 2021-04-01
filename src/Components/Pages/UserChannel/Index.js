@@ -20,13 +20,13 @@ export const ProfilePage = () => {
 
     if(!isOpen){
         COMPONENT_TO_RENDER = <Sidebar toggle={toogler}/>
-        MARGIN_LEFT = "260px"
+        MARGIN_LEFT = "200px"
         WIDTH = "401px"
         HEIGHT = "350px"
     }
     else{
         COMPONENT_TO_RENDER = <MinimalSideBar toggle={toogler}/>
-        MARGIN_LEFT = "250px"
+        MARGIN_LEFT = "100px"
         WIDTH = "439.5px"
         HEIGHT = "370px"
 

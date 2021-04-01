@@ -6,12 +6,15 @@ import {Button} from '../Button/Button'
 import {BsBellFill} from 'react-icons/bs'
 import {BiSearchAlt} from 'react-icons/bi'
 import {properties} from './Data'
+import {SearchBar} from '../SearchBar/Index'
 import {FaUserCircle} from 'react-icons/fa'
+import {Suggestions} from '../SearchBar/Suggestions'
 import logo from '../../assets/logo.png'
 
 export const  Navbar = (props) => {
   
     return (
+        <>
         <Flex p={3} backgroundColor="#fff" fontFamily="PT sans" position="fixed" w="100%" maxHeight="8vh" top = "0" pb={1} overflow="hidden" zIndex={1} textDecoration="none" borderBottom=".2px solid #747678">
         <Box >
             <Link to="/">
@@ -22,17 +25,14 @@ export const  Navbar = (props) => {
         </Box>
         <Spacer />
         <Box mb={3} ml="300px" mb={3}>
-            <InputGroup mt={1} ml={13}>
-                <InputLeftElement
-                pointerEvents="none"
-                children={<BiSearchAlt color="black" />}
-                 />
-                <Input type="text" variant="filled" placeholder="Search for a video" w={["100px","500px"]} />
-            </InputGroup>
+            <SearchBar/>
+            
         </Box>
         <Spacer/>
             <Button to="login" bg="rgba(5,61,126,1)" border="#0448b5" color = "white" bghover="#0448b5" > <Text marginTop="7px" > Login </Text> </Button>
             <Button to ="register" bg="none" border="rgba(5,61,126,1)" color = "rgba(5,61,126,1)" > <Text marginTop="7px" > Register </Text></Button>
       </Flex>
+      
+      </>
     )
 }

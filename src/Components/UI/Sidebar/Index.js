@@ -42,13 +42,14 @@ const DATA_TO_RENDER = [
 
 export const MinimalSideBar = (props) => {
     return(
-        <Box bg="#0B6BBF" w = "70px" color = "white" h = "100vh" position="fixed"  fontSize="25px" mt="13.5vh">
+        <Box bg="#0B6BBF" w = "70px" color = "white" h = "100vh" position="fixed"  fontSize="25px" >
             <List spacing={3} >
             <Box w = "70px"
                 d = "flex"
                 h = "50px"
                 alignItems="center"
                 justifyContent="center"
+                marginTop="120px"
                 cursor="pointer"
                >
             
@@ -87,7 +88,7 @@ export const MinimalSideBar = (props) => {
 }
 export const Sidebar = (props) => {
     return (
-        <Box bgGradient="linear(to-b, #2A80CB, #81B7E6)" w = "230px" color = "white" h = "100vh" position="fixed"  fontSize="20px"  mt="13.5vh">
+        <Box bgGradient="linear(to-b, #2A80CB, #81B7E6)" w = "230px" color = "white" h = "100vh" position="fixed"  fontSize="20px"  >
             <List spacing={3}>
 
             <Box w = "230px"
@@ -99,6 +100,7 @@ export const Sidebar = (props) => {
                 cursor="pointer"
                 alignItems="center"
                 justifyContent="left"
+                marginTop="120px"
                 onClick={props.toggle}
                 >
                     <ListIcon as={GoSignIn} ml={1} />

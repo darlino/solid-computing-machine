@@ -1,26 +1,32 @@
 import React from 'react';
 import Index from './Card'
-import { Wrap , WrapItem} from '@chakra-ui/react';
-import {users} from '../../assets/gistfile1'
+import { Wrap , WrapItem,Text} from '@chakra-ui/react';
+import {videosAPI} from '../../assets/dummyData'
 import {Link} from 'react-router-dom'
+import Zoom from 'react-reveal/Zoom'
 
 
+export const App = (props) => {
+    const link = "https://robohash.org/"
+    console.log(videosAPI)
 
-export const App = () => {
-    
-    console.log(users)
     return (
         
-        <Wrap spacing="100px">
+        <Wrap spacing={props.s}>
+            <Zoom left>
+                
             {
-                users.map((e) =>(
-                    <Link to="/profile">
+                videosAPI.map((e) =>(
+                    <Link to={`/profile?owner=${e.owner.username}`}>
                     <WrapItem>
-                        <Index img={e.actor.avatar_url} username={e.repo.name} subs={e.id}/>
+                        <Index img={e.owner.profile_image} username={e.owner.username}/>
                     </WrapItem>
                     </Link>
                 ))
-            }    
+            }   
+           
+            </Zoom>
+             
         </Wrap>
     );
 };

@@ -1,17 +1,59 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
-import {Box,HStack,Wrap,WrapItem,Text} from '@chakra-ui/react'
+import {Box,HStack,Wrap,WrapItem,Text, Heading,Divider} from '@chakra-ui/react'
+import { Tabs, TabList, TabPanels, Tab, TabPanel,VStack } from "@chakra-ui/react"
 import logo from "../assets/images/59-595914_facebook-cover-photos-retro.jpg"
 import luffy from "../assets/images/luffy-lavez-vous-les-mains.jpg"
 import thumb from "../assets/images/nba-live-mobile-17651-2.jpg"
 import todo from "../assets/images/todo.jpg"
 import {Link} from "react-router-dom"
-import { BsPencil } from 'react-icons/bs'
+import { BiUpload } from 'react-icons/bi'
 function Profile(props) {
 
   const [haveSubscribe,setHaveSubscribe] = useState(false)
   const [subscribers,setSubccribers] = useState(0)
 
+  const dummyData = [{
+    videosTitle: "Me and curt feel the same ...",
+    videosViews: "10k",
+    poster: todo,
+    videoDuration: "5 : 30"
+  },
+  {
+    videosTitle: "Theres no way i can save you caus i need to be save tooo ...",
+    videosViews: "13M",
+    poster: thumb,
+    videoDuration : "3 : 40"
+  },
+  {
+    videosTitle: "Let's talk about liyeplimall ...",
+    videosViews: "120Md",
+    poster: 'https://media-exp1.licdn.com/dms/image/C561BAQEkqkBusHBAjQ/company-background_10000/0/1611807516039?e=2159024400&v=beta&t=Kr4S7ytvqT9xDIFP78qCfJsZC8dl9wDWPD-Q-0ixNLk',
+    videoDuration : "12 : 40"
+  },
+]
+
+  const videos = (videoTitle,videoViews,poster,videoDuration) =>{
+    return (
+      <Rect4Stack>
+      <Rect4>
+        <LoremIpsum3 >{videoTitle}</LoremIpsum3>
+        <LoremIpsum4>{`${videoViews} views`}</LoremIpsum4>
+      </Rect4>
+      
+      <WrapItem>
+      <Image3 img={poster}>
+        <Rect5Stack>
+          <Rect5></Rect5>
+          <LoremIpsum2>{videoDuration}</LoremIpsum2>
+        </Rect5Stack>
+      </Image3>
+      </WrapItem>
+      
+    </Rect4Stack>
+    
+    )
+  }
 
   return (
     <Box w="100vh" p={20} mt={4}>
@@ -26,58 +68,44 @@ function Profile(props) {
             src={luffy}
           ></Image2>
         </RectStack>
+        <HStack>
         <HStack spacing="40px" width="500px" ml="800px">
         <Rect2 onClick={ () => setHaveSubscribe(!haveSubscribe)}>
           <Subscribe>{haveSubscribe ? "Unsubscribe" : "Subscribe"}</Subscribe>
         </Rect2>
-        <Edit to="/edit-profile">
-          <Subscribe> <Text> Edit Profile</Text> </Subscribe>
-        </Edit>
+        
+          
         </HStack>
+          <Edit to="/edit-profile">
+            <Subscribe> <Text> Edit Profile</Text> </Subscribe>
+          </Edit>
+        </HStack> 
+        
         
         <LuffyDeWano>Luffy De Wano</LuffyDeWano>
         
         <LoremIpsum>{`${subscribers} Subcribers`}</LoremIpsum>
       </RectStackStack>
       <Rect3>
-        <Videos>Videos</Videos>
-        <Wrap>
-        <Rect4Stack>
-          <Rect4>
-            <LoremIpsum3>NBA Live will come out soon</LoremIpsum3>
-            <LoremIpsum4>8k views</LoremIpsum4>
-          </Rect4>
+          <Tabs p={5} outline="none">
+            <TabList>
+              <Tab> <Videos>Videos</Videos></Tab>
+              <Tab> <Videos>Bio</Videos></Tab>
+            </TabList>
           
-          <WrapItem>
-          <Image3 img={thumb}>
-            <Rect5Stack>
-              <Rect5></Rect5>
-              <LoremIpsum2>5 : 30</LoremIpsum2>
-            </Rect5Stack>
-          </Image3>
-          </WrapItem>
-          
-        </Rect4Stack>
-
-        <Rect4Stack>
-          <Rect4>
-            <LoremIpsum3>NBA Live will come out soon</LoremIpsum3>
-            <LoremIpsum4>8k views</LoremIpsum4>
-          </Rect4>
-          
-          <WrapItem>
-          <Image3 img={todo}>
-            <Rect5Stack>
-              <Rect5></Rect5>
-              <LoremIpsum2>5 : 30</LoremIpsum2>
-            </Rect5Stack>
-          </Image3>
-          </WrapItem>
-          
-        </Rect4Stack>
-        
-        </Wrap>
-          
+        <TabPanels p={3}>
+          <TabPanel m={3}>
+              <Wrap>{videos("Darlino","8k",thumb,"4 : 20")}</Wrap>
+          </TabPanel>
+          <TabPanel>
+            <HStack w="90%" h="auto" p={5} spacing={4}>
+              <Text> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</Text>
+            </HStack>
+            
+          </TabPanel>
+      
+        </TabPanels>
+        </Tabs>
       </Rect3>
     </Box>
   );
@@ -110,8 +138,6 @@ const Rect = styled.div`
 const Image = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: center;
-
   
 `;
 
@@ -206,12 +232,13 @@ const Videos = styled.span`
   font-style: normal;
   font-weight: 400;
   color: #121212;
-  height: 46px;
-  width: 303px;
-  font-size: 25px;
-  margin-top: 12px;
-  margin-left: 47px;
-`;
+  height: 30px;
+  width: 100%;
+  font-size: 20px;
+  padding-bottom:10px;
+  outline:none;
+  border:none
+`
 
 const Rect4 = styled.div`
   top: 0px;
@@ -228,11 +255,12 @@ const LoremIpsum3 = styled.span`
   font-style: normal;
   font-weight: 400;
   color: #121212;
-  height: 33px;
-  width: 364px;
+  height: auto;
+  width: auto;
   font-size: 18px;
   margin-top: 206px;
   margin-left: 6px;
+  text-overflow: ellipsis;
 `;
 
 const LoremIpsum4 = styled.span`

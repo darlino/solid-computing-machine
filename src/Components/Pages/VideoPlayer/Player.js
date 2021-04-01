@@ -18,7 +18,7 @@ export const Player = (props) => {
     const {mouf} = (props.location && props.location.state) || {}
     console.log(mouf)
     return (
-        <Container>
+        <Container style={{paddingLeft:"20px"}}>
             <VideoWrapper>
                 <VideoPlayer src={mvideo} 
                 poster={poster}/>
